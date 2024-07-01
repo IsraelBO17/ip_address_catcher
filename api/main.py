@@ -11,7 +11,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"message": "Hello World!"}
 
 # Function to get client IP address (considering potential proxy environments)
 def get_client_ip(request: Request):
@@ -63,3 +63,4 @@ def get_info(request: Request, greeting:str = "hello", visitor_name:str = "mark"
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+    # uvicorn main:app --host 0.0.0.0 --port 8000 --proxy-headers
